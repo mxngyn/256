@@ -4,14 +4,15 @@ body {
 }
 
 #game-container {
+  display: block;
   margin: 0 auto;
-  padding: 10px;
+  text-align: center;
 }
 
 .row {
-    display: block;
-    margin: 0 auto;
-    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .cell {
@@ -22,7 +23,6 @@ body {
   height: 30px;
   width: 30px;
   border-radius: 8px;
-  margin: 2px;
   top: 50%;
   display: inline-block;
 }
