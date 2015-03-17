@@ -223,15 +223,6 @@ var Game = (function() {
 
 
 
-  // Game.prototype.checkWin = function() {
-  //   var self = this;
-  //   for (i = 0; i < self.tiles.length; i++) {
-  //     if (self.tiles[i] == "256" ){
-  //       return true;
-  //       alert("YOU HAVE WON THIS ITERATION OF 256...");
-  //     };
-  //   }
-  // }
 
   // Game.prototype.checkLose = function() {
 
