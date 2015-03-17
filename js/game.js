@@ -142,6 +142,7 @@ var Game = (function() {
         self.setRows(mappedRows);
         self.randomSpawn();
         self.toHtml();
+        self.checkWin();
         break;
       case 'right':
        var mappedRows = self.getRows().map(function(row, index, board) {
@@ -162,6 +163,7 @@ var Game = (function() {
         self.setRows(mappedRows);
         self.randomSpawn();
         self.toHtml();
+        self.checkWin();
         break;
       case 'up':
         var mappedCols = self.getCols().map(function(col, index, board) {
@@ -182,6 +184,7 @@ var Game = (function() {
         self.setCols(mappedCols);
         self.randomSpawn();
         self.toHtml();
+        self.checkWin();
         break;
       case 'down':
         var mappedCols = self.getCols().map(function(col, index, board) {
@@ -202,6 +205,7 @@ var Game = (function() {
         self.setCols(mappedCols);
         self.randomSpawn();
         self.toHtml();
+        self.checkWin();
         break;
     }
   }
