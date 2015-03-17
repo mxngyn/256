@@ -72,10 +72,15 @@ var Game = (function() {
         boardHtml += "<div class='row'>";
       }
       var cell = this.board[i];
-      boardHtml += "<div class='cell val" + cell + "'>" + cell + "</div>"
-        if (i % 4 === 3){
-          boardHtml += "</div>";
-        };
+      if(cell === 0) {
+        boardHtml += "<div class='cell val" + cell + "'> </div>"
+      }
+      else {
+        boardHtml += "<div class='cell val" + cell + "'>" + cell + "</div>"
+      }
+      if(i % 4 === 3) {
+        boardHtml += "</div>";
+      };
     }
     document.getElementById("game-container").innerHTML = boardHtml;
   }
