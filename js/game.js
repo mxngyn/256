@@ -108,6 +108,14 @@ var Game = (function() {
     }
   }
 
+  Game.prototype.checkWin = function() {
+    for (i = 0; i < this.board.length; i++) {
+      if (this.board[i] == 256 ){
+        alert("YOU HAVE WON THIS ITERATION OF 256...");
+      };
+    }
+  }
+
   Game.prototype.chaChaSlide = function(direction) {
     var self = this;
     switch(direction){
