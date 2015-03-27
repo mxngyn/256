@@ -1,5 +1,5 @@
 body {
-  background-color: #8e94ac;
+  background-color: #8bb3c7;
   font-family: Arial, sans-serif;
 }
 
@@ -30,38 +30,38 @@ body {
 
 
 .val0 {
-  background-color: #f9fafe;
+  background-color: #fff;
 }
 
 .val2 {
-  background-color: #f4f6fd;
+  background-color: #f6fbfe;
 }
 
 .val4 {
-  background-color: #eff2fc;
+  background-color: #f5fbfe;
 }
 
 .val8 {
-  background-color: #eaedfb;
+  background-color: #ddf2fd;
 }
 
 
 .val16 {
-  background-color: #e5e9fa;
+  background-color: #c6e9fb;
 }
 
 .val32 {
-  background-color: #dfe5f9;
+  background-color: #aee0f9;
 }
 
 .val64 {
-  background-color: #dae0f8;
+  background-color: #96d7f7;
 }
 
 .val128 {
-  background-color: #d5dcf7;
+  background-color: #7fcef5;
 }
 
 .val256 {
-  background-color: #d0d8f6;
+  background-color: #67c5f4;
 }
