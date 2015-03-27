@@ -1,12 +1,12 @@
 var Game = (function() {
 
-    function removeZeros(element) { return element !== 0 }
+  function removeZeros(element) { return element !== 0 }
 
-    function addNum(num1, num2) { if (num1 === num2) { return num1 + num2 }}
+  function addNum(num1, num2) { if (num1 === num2) { return num1 + num2 }}
 
-    function getRandomInt(min, max) {
-      return Math.floor(Math.random() * (max - min)) + min;
-    }
+  function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
 
   function Game() {
     this.tiles = [];
@@ -57,10 +57,10 @@ var Game = (function() {
   Game.prototype.toString = function() {
     var displayBoard = ""
     for(i = 0; i < 16; i++) {
-        displayBoard += this.board[i];
-        if (i % 4 === 3){
-          displayBoard += "\n";
-        };
+      displayBoard += this.board[i];
+      if (i % 4 === 3){
+        displayBoard += "\n";
+      };
     }
     return displayBoard;
   }
@@ -119,9 +119,11 @@ var Game = (function() {
   Game.prototype.chaChaSlide = function(direction) {
     var self = this;
     switch(direction){
-      case 'left':
-        var mappedRows = self.getRows().map(function(row, index, board) {
-          var filteredRow = row.filter(removeZeros);
+      case 37:
+      var oldBoard = self.board;
+      var sameBoard = false;
+      var mappedRows = self.getRows().map(function(row, index, board) {
+        var filteredRow = row.filter(removeZeros);
           // user hits left, we start on the first column and iterate right
           // user hits right, we should start on the last (right-most) column and iterate left
           // user hits down, we should start on the last (bottom) row and iterate up
@@ -139,74 +141,100 @@ var Game = (function() {
           }
           return filteredRow;
         });
-        self.setRows(mappedRows);
+      console.log(oldBoard);
+      self.setRows(mappedRows);
+      console.log(self.board);
+      if(oldBoard.join() === self.board.join()) {
+        console.log("same");
+      }
+      else {
         self.randomSpawn();
-        self.toHtml();
-        self.checkWin();
-        break;
-      case 'right':
-       var mappedRows = self.getRows().map(function(row, index, board) {
-          var filteredRow = row.filter(removeZeros).reverse();
-          if(filteredRow.length > 1) {
-            for(i = 0; i < filteredRow.length-1; i++){
-              if(filteredRow[i] === filteredRow[i+1]){
-                filteredRow.splice(i, 2, (filteredRow[i] * 2));
-                filteredRow.push(0);
-              }
+      }
+      self.toHtml();
+      self.checkWin();
+      console.log("*******");
+      break;
+      case 39:
+      var oldBoard = self.board;
+      var mappedRows = self.getRows().map(function(row, index, board) {
+        var filteredRow = row.filter(removeZeros).reverse();
+        if(filteredRow.length > 1) {
+          for(i = 0; i < filteredRow.length-1; i++){
+            if(filteredRow[i] === filteredRow[i+1]){
+              filteredRow.splice(i, 2, (filteredRow[i] * 2));
+              filteredRow.push(0);
             }
           }
-          while(filteredRow.length < 4) {
-            filteredRow.push(0);
-          }
-          return filteredRow.reverse();
-        });
-        self.setRows(mappedRows);
+        }
+        while(filteredRow.length < 4) {
+          filteredRow.push(0);
+        }
+        return filteredRow.reverse();
+      });
+      self.setRows(mappedRows);
+      if(oldBoard.join() === self.board.join()) {
+        console.log("same");
+      }
+      else {
         self.randomSpawn();
-        self.toHtml();
-        self.checkWin();
-        break;
-      case 'up':
-        var mappedCols = self.getCols().map(function(col, index, board) {
-          var filteredCol = col.filter(removeZeros);
-          if(filteredCol.length > 1) {
-            for(i = 0; i < filteredCol.length-1; i++){
-              if(filteredCol[i] === filteredCol[i+1]){
-                filteredCol.splice(i, 2, (filteredCol[i] * 2));
-                filteredCol.push(0);
-              }
+      }
+      self.toHtml();
+      self.checkWin();
+      break;
+      case 38:
+      var oldBoard = self.board;
+      var mappedCols = self.getCols().map(function(col, index, board) {
+        var filteredCol = col.filter(removeZeros);
+        if(filteredCol.length > 1) {
+          for(i = 0; i < filteredCol.length-1; i++){
+            if(filteredCol[i] === filteredCol[i+1]){
+              filteredCol.splice(i, 2, (filteredCol[i] * 2));
+              filteredCol.push(0);
             }
           }
-          while(filteredCol.length < 4) {
-            filteredCol.push(0);
-          }
-          return filteredCol;
-        });
-        self.setCols(mappedCols);
+        }
+        while(filteredCol.length < 4) {
+          filteredCol.push(0);
+        }
+        return filteredCol;
+      });
+      self.setCols(mappedCols);
+      if(oldBoard.join() === self.board.join()) {
+        console.log("same");
+      }
+      else {
         self.randomSpawn();
-        self.toHtml();
-        self.checkWin();
-        break;
-      case 'down':
-        var mappedCols = self.getCols().map(function(col, index, board) {
-          var filteredCol = col.filter(removeZeros).reverse();
-          if(filteredCol.length > 1) {
-            for(i = 0; i < filteredCol.length-1; i++){
-              if(filteredCol[i] === filteredCol[i+1]){
-                filteredCol.splice(i, 2, (filteredCol[i] * 2));
-                filteredCol.push(0);
-              }
+      }
+      self.toHtml();
+      self.checkWin();
+      break;
+      case 40:
+      var oldBoard = self.board;
+      var mappedCols = self.getCols().map(function(col, index, board) {
+        var filteredCol = col.filter(removeZeros).reverse();
+        if(filteredCol.length > 1) {
+          for(i = 0; i < filteredCol.length-1; i++){
+            if(filteredCol[i] === filteredCol[i+1]){
+              filteredCol.splice(i, 2, (filteredCol[i] * 2));
+              filteredCol.push(0);
             }
           }
-          while(filteredCol.length < 4) {
-            filteredCol.push(0);
-          }
-          return filteredCol.reverse();
-        });
-        self.setCols(mappedCols);
+        }
+        while(filteredCol.length < 4) {
+          filteredCol.push(0);
+        }
+        return filteredCol.reverse();
+      });
+      self.setCols(mappedCols);
+      if(oldBoard.join() === self.board.join()) {
+        console.log("same");
+      }
+      else {
         self.randomSpawn();
-        self.toHtml();
-        self.checkWin();
-        break;
+      }
+      self.toHtml();
+      self.checkWin();
+      break;
     }
   }
 
