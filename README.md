@@ -2,7 +2,7 @@
 
 A shorter game of 2048 using OOJS.
 
-**Technologies:** JavaScript, MouseTrapJS
+**Technologies:** JavaScript
 
 Future To-Dos:
 
